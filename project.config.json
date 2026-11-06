@@ -1,0 +1,31 @@
+{
+  "description": "拾光咖啡 · 咖啡点单小程序（原生，本地数据版）",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": ".workbuddy"
+      },
+      {
+        "type": "folder",
+        "value": "tools"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "bundle": false,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "urlCheck": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "appid": "wx7cf0a90357ce9a90",
+  "projectname": "shiguang-coffee",
+  "miniprogramRoot": "./"
+}

@@ -1,0 +1,17 @@
+# 依赖与构建产物
+node_modules/
+miniprogram_npm/
+
+# 微信开发者工具本地私有配置（含个人设置、编译模式，不应提交）
+project.private.config.json
+
+# WorkBuddy / 编辑器 / 系统
+.workbuddy/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp

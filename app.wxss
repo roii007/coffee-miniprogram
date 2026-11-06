@@ -1,0 +1,138 @@
+page {
+    min-height: 100%;
+    background: #f7f3ee;
+    color: #2b2119;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+button {
+    border-radius: 12rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.page {
+    padding: 24rpx 28rpx 220rpx;
+    box-sizing: border-box;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 28rpx;
+    padding: 28rpx;
+    box-shadow: 0 8rpx 28rpx rgba(107, 74, 52, 0.06);
+}
+
+.section-title {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #2b2119;
+}
+
+.muted {
+    color: #8c8078;
+}
+
+.divider {
+    height: 1rpx;
+    background: #efe7de;
+}
+
+/* 通用按钮 */
+.primary-button {
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+    border-radius: 48rpx;
+    background: linear-gradient(135deg, #a8703f, #7f4f2c);
+    color: #ffffff;
+    font-size: 32rpx;
+    font-weight: 600;
+    letter-spacing: 2rpx;
+    box-shadow: 0 12rpx 24rpx rgba(127, 79, 44, 0.22);
+}
+
+.primary-button.is-disabled {
+    background: #d9cec3;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+.ghost-button {
+    height: 76rpx;
+    line-height: 76rpx;
+    text-align: center;
+    border-radius: 38rpx;
+    border: 2rpx solid #e2d6c9;
+    color: #6b4a34;
+    font-size: 26rpx;
+    background: #ffffff;
+}
+
+/* 状态卡 */
+.state-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 96rpx 40rpx;
+    background: #ffffff;
+    border-radius: 28rpx;
+}
+
+.state-title {
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-top: 20rpx;
+}
+
+.state-description {
+    font-size: 24rpx;
+    color: #8c8078;
+    margin-top: 12rpx;
+    text-align: center;
+    line-height: 38rpx;
+}
+
+.spinner {
+    width: 56rpx;
+    height: 56rpx;
+    border-radius: 50%;
+    border: 6rpx solid #ece2d7;
+    border-top-color: #965f3a;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 缩略图渐变 */
+.thumb-t1 {
+    background: linear-gradient(135deg, #e8cba6, #bd8555);
+}
+
+.thumb-t2 {
+    background: linear-gradient(135deg, #dcc6b1, #a37a52);
+}
+
+.thumb-t3 {
+    background: linear-gradient(135deg, #cbd8c2, #7d9a74);
+}
+
+.thumb-t4 {
+    background: linear-gradient(135deg, #c3ccd9, #74839a);
+}
+
+.thumb-t5 {
+    background: linear-gradient(135deg, #f2d5b7, #d3955f);
+}
+
+.thumb-t6 {
+    background: linear-gradient(135deg, #e9ddcb, #bda98d);
+}

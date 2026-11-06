@@ -1,0 +1,96 @@
+<view class="page">
+    <view class="store-card">
+        <view class="store-head">
+            <view class="store-left">
+                <text class="store-name">{{storeInfo.name}}</text>
+                <view class="store-meta">
+                    <text class="status-dot"></text>
+                    <text class="store-status">{{storeInfo.status}}</text>
+                    <text class="meta-divider">|</text>
+                    <text class="store-hours">{{storeInfo.hours}}</text>
+                    <text class="meta-divider">|</text>
+                    <text class="store-distance">{{storeInfo.distance}}</text>
+                </view>
+            </view>
+            <view class="store-call" bindtap="handleCall">电话</view>
+        </view>
+
+        <view class="method-row">
+            <view class="method-tab {{method === 'pickup' ? 'is-active' : ''}}" data-method="pickup" bindtap="switchMethod">
+                <text class="method-title">到店自取</text>
+                <text class="method-sub">约 {{storeInfo.pickupWait}} 分钟</text>
+            </view>
+            <view class="method-tab {{method === 'dinein' ? 'is-active' : ''}}" data-method="dinein" bindtap="switchMethod">
+                <text class="method-title">堂食</text>
+                <text class="method-sub">{{storeInfo.table}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="notice-bar" bindtap="handleNotice">
+        <text class="notice-tag">今日</text>
+        <text class="notice-text">{{notice}}</text>
+        <text class="notice-arrow">›</text>
+    </view>
+
+    <scroll-view class="cat-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}">
+        <view class="cat-list">
+            <view
+                class="cat-item {{activeCat === item.id ? 'is-active' : ''}}"
+                wx:for="{{categories}}"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="switchCat"
+            >
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class="state-card" wx:if="{{viewState === 'loading'}}">
+        <view class="spinner"></view>
+        <text class="state-title">正在准备今日豆单</text>
+        <text class="state-description">马上就好，先想想要喝什么。</text>
+    </view>
+
+    <view class="state-card" wx:elif="{{viewState === 'error'}}">
+        <text class="state-title">菜单加载失败</text>
+        <text class="state-description">请检查网络后重试。</text>
+        <button class="ghost-button retry" bindtap="handleRetry">重新加载</button>
+    </view>
+
+    <view class="product-list" wx:else>
+        <view class="product-card" wx:for="{{products}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+            <view class="thumb thumb-{{item.tone}}">
+                <text class="thumb-text">{{item.badge}}</text>
+            </view>
+            <view class="product-info">
+                <view class="product-head">
+                    <text class="product-name">{{item.name}}</text>
+                    <text class="product-tag" wx:if="{{item.tag}}">{{item.tag}}</text>
+                </view>
+                <text class="product-sub">{{item.sub}}</text>
+                <text class="product-desc">{{item.desc}}</text>
+                <view class="product-foot">
+                    <view class="price-wrap">
+                        <text class="price-symbol">¥</text>
+                        <text class="price-value">{{item.priceText}}</text>
+                        <text class="price-from" wx:if="{{item.specType === 'drink'}}">起</text>
+                    </view>
+                    <view class="add-btn" data-id="{{item.id}}" catchtap="quickAdd">＋</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="cart-bar" wx:if="{{cart.count > 0}}">
+    <view class="cart-inner">
+        <view class="cart-badge">{{cart.count}}</view>
+        <view class="cart-summary" bindtap="goCart">
+            <text class="cart-total">¥{{cart.subtotalText}}</text>
+            <text class="cart-tip">{{methodText}} · 预计 {{storeInfo.pickupWait}} 分钟</text>
+        </view>
+        <view class="cart-action" bindtap="goCart">去结算</view>
+    </view>
+</view>

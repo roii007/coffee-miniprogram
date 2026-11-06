@@ -1,0 +1,108 @@
+<view class="state-card detail-state" wx:if="{{viewState === 'error'}}">
+    <text class="state-title">没有找到这款商品</text>
+    <text class="state-description">它可能已经下架了，回菜单看看其他选择。</text>
+</view>
+
+<block wx:else>
+    <view class="hero thumb-{{product.tone}}">
+        <text class="hero-badge">{{product.badge}}</text>
+        <text class="hero-sub">{{product.sub}}</text>
+    </view>
+
+    <view class="sheet">
+        <view class="title-row">
+            <text class="title">{{product.name}}</text>
+            <view class="price-wrap">
+                <text class="price-symbol">¥</text>
+                <text class="price-value">{{unitPriceText}}</text>
+            </view>
+        </view>
+        <text class="desc">{{product.desc}}</text>
+
+        <block wx:if="{{isDrink}}">
+            <view class="spec-group">
+                <text class="spec-label">杯型</text>
+                <view class="chip-row">
+                    <view
+                        class="chip size-{{index}} {{sizeIndex === index ? 'is-active' : ''}}"
+                        wx:for="{{sizes}}"
+                        wx:key="id"
+                        data-index="{{index}}"
+                        bindtap="pickSize"
+                    >
+                        <text class="chip-name">{{item.name}}</text>
+                        <text class="chip-note">{{item.note}}</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="spec-group">
+                <text class="spec-label">温度</text>
+                <view class="chip-row">
+                    <view
+                        class="chip chip-sm temp-{{index}} {{tempIndex === index ? 'is-active' : ''}}"
+                        wx:for="{{temps}}"
+                        wx:key="id"
+                        data-index="{{index}}"
+                        bindtap="pickTemp"
+                    >
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
+
+            <view class="spec-group">
+                <text class="spec-label">甜度</text>
+                <view class="chip-row">
+                    <view
+                        class="chip chip-sm sugar-{{index}} {{sugarIndex === index ? 'is-active' : ''}}"
+                        wx:for="{{sugars}}"
+                        wx:key="id"
+                        data-index="{{index}}"
+                        bindtap="pickSugar"
+                    >
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
+
+            <view class="spec-group">
+                <text class="spec-label">加料</text>
+                <view class="extra-list">
+                    <view class="extra-row extra-{{index}}" wx:for="{{extras}}" wx:key="id" data-index="{{index}}" bindtap="toggleExtra">
+                        <text class="extra-name">{{item.name}}</text>
+                        <view class="extra-right">
+                            <text class="extra-price">{{item.deltaText}}</text>
+                            <view class="check {{item.checked ? 'is-checked' : ''}}">{{item.checked ? '✓' : ''}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <view class="qty-row">
+            <text class="spec-label">数量</text>
+            <view class="stepper">
+                <view class="step-btn step-minus {{qty <= 1 ? 'is-disabled' : ''}}" data-delta="-1" bindtap="changeQty">−</view>
+                <text class="step-value">{{qty}}</text>
+                <view class="step-btn step-plus" data-delta="1" bindtap="changeQty">＋</view>
+            </view>
+        </view>
+
+        <view class="note-card">
+            <text class="note-title">已选</text>
+            <text class="note-text">{{specText}}</text>
+        </view>
+    </view>
+
+    <view class="bottom-bar">
+        <view class="cart-entry" bindtap="goCart">
+            <text class="cart-entry-text">购物车</text>
+            <text class="cart-entry-count" wx:if="{{cartCount > 0}}">{{cartCount}}</text>
+        </view>
+        <view class="buy-btn" bindtap="addToCart">
+            <text class="buy-price">¥{{totalText}}</text>
+            <text class="buy-text">加入购物车</text>
+        </view>
+    </view>
+</block>

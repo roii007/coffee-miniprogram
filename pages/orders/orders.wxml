@@ -1,0 +1,57 @@
+<view class="page">
+    <view class="filter-row">
+        <view
+            class="filter-item {{activeFilter === item.id ? 'is-active' : ''}}"
+            wx:for="{{filters}}"
+            wx:key="id"
+            data-id="{{item.id}}"
+            bindtap="switchFilter"
+        >
+            {{item.name}}
+        </view>
+    </view>
+
+    <view class="state-card" wx:if="{{viewState === 'empty'}}">
+        <text class="state-title">还没有订单</text>
+        <text class="state-description">下单后会出现在这里，制作进度也能看到。</text>
+        <button class="ghost-button empty-btn" bindtap="goMenu">去点一杯</button>
+    </view>
+
+    <view class="order-card" wx:for="{{orders}}" wx:key="id">
+        <view class="order-head">
+            <view class="order-head-left">
+                <text class="order-status {{item.status === 'done' ? 'is-done' : ''}}">{{item.statusText}}</text>
+                <text class="order-time">{{item.timeText}}</text>
+            </view>
+            <text class="order-method">{{item.methodText}}</text>
+        </view>
+
+        <view class="order-body">
+            <view class="order-line" wx:for="{{item.items}}" wx:for-item="line" wx:key="key">
+                <view class="order-thumb thumb-{{line.tone}}">
+                    <text class="order-badge">{{line.badge}}</text>
+                </view>
+                <view class="order-line-main">
+                    <text class="order-name">{{line.name}}</text>
+                    <text class="order-spec">{{line.specText}}</text>
+                </view>
+                <text class="order-qty">×{{line.qty}}</text>
+            </view>
+
+            <view class="order-note" wx:if="{{item.note}}">备注：{{item.note}}</view>
+        </view>
+
+        <view class="order-foot">
+            <view class="order-total">
+                <text class="order-total-label">共 {{item.count}} 件 · 实付</text>
+                <text class="order-total-value">¥{{item.totalText}}</text>
+            </view>
+            <view class="order-actions">
+                <view class="action-btn" data-id="{{item.id}}" catchtap="reorder">再来一单</view>
+                <view class="action-btn action-primary" wx:if="{{item.status !== 'done'}}" data-id="{{item.id}}" catchtap="finishOrder">确认取餐</view>
+            </view>
+        </view>
+
+        <view class="order-no">订单号 {{item.no}}</view>
+    </view>
+</view>

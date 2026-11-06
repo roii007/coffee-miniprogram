@@ -1,0 +1,336 @@
+.page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 24rpx 28rpx 220rpx;
+}
+
+.empty-btn {
+    width: 240rpx;
+    margin-top: 30rpx;
+}
+
+/* 取餐方式 */
+.method-card {
+    display: flex;
+    padding: 8rpx;
+    background: #f0e7db;
+    border-radius: 24rpx;
+}
+
+.method {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rpx 0;
+    border-radius: 18rpx;
+    color: #8c8078;
+}
+
+.method.is-active {
+    background: #ffffff;
+    color: #6b4a34;
+    box-shadow: 0 4rpx 12rpx rgba(107, 74, 52, 0.08);
+}
+
+.method-title {
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.method-sub {
+    font-size: 21rpx;
+    margin-top: 6rpx;
+    opacity: 0.75;
+}
+
+/* 清单 */
+.list-card {
+    margin-top: 24rpx;
+}
+
+.list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clear-btn {
+    font-size: 24rpx;
+    color: #b0a49a;
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    padding: 26rpx 0 8rpx;
+    border-bottom: 1rpx solid #f4ece3;
+    margin-top: 16rpx;
+    position: relative;
+}
+
+.line:last-child {
+    border-bottom: none;
+}
+
+.line-thumb {
+    width: 108rpx;
+    height: 108rpx;
+    border-radius: 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.line-badge {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.line-main {
+    flex: 1;
+    min-width: 0;
+    margin-left: 22rpx;
+}
+
+.line-name {
+    font-size: 30rpx;
+    font-weight: 600;
+}
+
+.line-spec {
+    display: block;
+    font-size: 22rpx;
+    color: #a2958a;
+    margin-top: 8rpx;
+}
+
+.line-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16rpx;
+}
+
+.line-price {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: #b4462f;
+}
+
+.line-remove {
+    position: absolute;
+    right: 0;
+    top: 16rpx;
+    width: 44rpx;
+    height: 44rpx;
+    line-height: 40rpx;
+    text-align: center;
+    color: #c9bdb2;
+    font-size: 34rpx;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+}
+
+.step-btn {
+    width: 52rpx;
+    height: 52rpx;
+    line-height: 48rpx;
+    text-align: center;
+    border-radius: 50%;
+    background: #f6efe6;
+    color: #6b4a34;
+    font-size: 30rpx;
+}
+
+.step-value {
+    min-width: 64rpx;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+/* 优惠券 */
+.coupon-card {
+    margin-top: 24rpx;
+}
+
+.coupon {
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    border-radius: 18rpx;
+    border: 2rpx solid #f0e6da;
+    background: #fdfaf6;
+}
+
+.coupon.is-active {
+    border-color: #c8813f;
+    background: #fdf2e4;
+}
+
+.coupon-amount {
+    display: flex;
+    align-items: baseline;
+    width: 130rpx;
+}
+
+.coupon-symbol {
+    font-size: 22rpx;
+    color: #c8813f;
+}
+
+.coupon-value {
+    font-size: 42rpx;
+    font-weight: 700;
+    color: #c8813f;
+}
+
+.coupon-info {
+    flex: 1;
+}
+
+.coupon-title {
+    font-size: 27rpx;
+    font-weight: 600;
+}
+
+.coupon-desc {
+    display: block;
+    font-size: 21rpx;
+    color: #a2958a;
+    margin-top: 6rpx;
+}
+
+.coupon-check {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    border: 2rpx solid #ded1c3;
+    color: #ffffff;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.coupon-check.is-checked {
+    background: #c8813f;
+    border-color: #c8813f;
+}
+
+/* 备注 */
+.note-card {
+    margin-top: 24rpx;
+}
+
+.note-input {
+    margin-top: 20rpx;
+    height: 84rpx;
+    background: #f7f1e9;
+    border-radius: 16rpx;
+    padding: 0 22rpx;
+    font-size: 26rpx;
+}
+
+.note-placeholder {
+    color: #bfb3a8;
+}
+
+/* 金额 */
+.summary-card {
+    margin-top: 24rpx;
+}
+
+.sum-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12rpx 0;
+}
+
+.sum-label {
+    font-size: 25rpx;
+    color: #8c8078;
+}
+
+.sum-value {
+    font-size: 26rpx;
+    color: #40342b;
+}
+
+.sum-cut {
+    color: #c8813f;
+}
+
+.sum-divider {
+    margin: 12rpx 0;
+}
+
+.total-label {
+    font-size: 27rpx;
+    color: #2b2119;
+    font-weight: 600;
+}
+
+.sum-total {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #b4462f;
+}
+
+/* 底部 */
+.bottom-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 18rpx 28rpx calc(20rpx + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 -8rpx 24rpx rgba(107, 74, 52, 0.06);
+}
+
+.bar-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bar-label {
+    font-size: 21rpx;
+    color: #a2958a;
+}
+
+.bar-value {
+    font-size: 38rpx;
+    font-weight: 700;
+    color: #b4462f;
+}
+
+.submit-btn {
+    width: 340rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    text-align: center;
+    border-radius: 46rpx;
+    background: linear-gradient(135deg, #a8703f, #7f4f2c);
+    color: #ffffff;
+    font-size: 30rpx;
+    font-weight: 600;
+    letter-spacing: 2rpx;
+    box-shadow: 0 12rpx 24rpx rgba(127, 79, 44, 0.22);
+}
+
+.submit-btn.is-disabled {
+    background: #d9cec3;
+    box-shadow: none;
+}

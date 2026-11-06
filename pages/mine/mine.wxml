@@ -1,0 +1,68 @@
+<view class="page">
+    <view class="profile-card">
+        <view class="avatar">咖</view>
+        <view class="profile-main">
+            <text class="nickname">{{profile.nickname}}</text>
+            <view class="member-row">
+                <text class="member-badge">{{profile.member}}</text>
+                <text class="member-days">已陪伴 {{profile.joinDays}} 天</text>
+            </view>
+        </view>
+        <view class="points">
+            <text class="points-value">{{profile.points}}</text>
+            <text class="points-label">金豆</text>
+        </view>
+    </view>
+
+    <view class="stat-row">
+        <view class="stat-item" bindtap="goOrders">
+            <text class="stat-value">{{stats.orderCount}}</text>
+            <text class="stat-label">订单</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+            <text class="stat-value">{{stats.cups}}</text>
+            <text class="stat-label">杯数</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item" bindtap="showCoupons">
+            <text class="stat-value">{{stats.coupons}}</text>
+            <text class="stat-label">优惠券</text>
+        </view>
+    </view>
+
+    <view class="menu-card">
+        <view class="menu-item" bindtap="goOrders">
+            <text class="menu-name">我的订单</text>
+            <text class="menu-arrow">›</text>
+        </view>
+        <view class="menu-item" bindtap="showCoupons">
+            <text class="menu-name">优惠券</text>
+            <text class="menu-extra">{{stats.coupons}} 张可用</text>
+        </view>
+        <view class="menu-item" bindtap="goMenu">
+            <text class="menu-name">继续点单</text>
+            <text class="menu-arrow">›</text>
+        </view>
+    </view>
+
+    <view class="menu-card">
+        <view class="menu-item" bindtap="showStore">
+            <text class="menu-name">门店信息</text>
+            <text class="menu-extra">{{storeInfo.distance}}</text>
+        </view>
+        <view class="menu-item" bindtap="showAbout">
+            <text class="menu-name">关于本小程序</text>
+            <text class="menu-extra">v{{version}}</text>
+        </view>
+        <view class="menu-item" bindtap="resetData">
+            <text class="menu-name menu-danger">清空本地数据</text>
+            <text class="menu-arrow">›</text>
+        </view>
+    </view>
+
+    <view class="footer">
+        <text class="footer-text">拾光咖啡 · 好好喝一杯</text>
+        <text class="footer-sub">数据保存在本机，卸载或清理缓存后不可恢复</text>
+    </view>
+</view>

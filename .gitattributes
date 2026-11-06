@@ -1,0 +1,8 @@
+# 统一换行，避免 Windows 上 CRLF 反复改动
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary

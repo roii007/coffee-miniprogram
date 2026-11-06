@@ -1,0 +1,100 @@
+<view class="page">
+    <view class="state-card" wx:if="{{count === 0}}">
+        <text class="state-title">购物车还空着</text>
+        <text class="state-description">挑一杯今天的续命水，很快就做好。</text>
+        <button class="ghost-button empty-btn" bindtap="goMenu">去点单</button>
+    </view>
+
+    <block wx:else>
+        <view class="method-card">
+            <view class="method {{method === 'pickup' ? 'is-active' : ''}}" data-method="pickup" bindtap="switchMethod">
+                <text class="method-title">到店自取</text>
+                <text class="method-sub">约 12 分钟后可取</text>
+            </view>
+            <view class="method {{method === 'dinein' ? 'is-active' : ''}}" data-method="dinein" bindtap="switchMethod">
+                <text class="method-title">堂食</text>
+                <text class="method-sub">送至 A 区 06 号桌</text>
+            </view>
+        </view>
+
+        <view class="card list-card">
+            <view class="list-head">
+                <text class="section-title">已选 {{count}} 件</text>
+                <text class="clear-btn" bindtap="clearCart">清空</text>
+            </view>
+
+            <view class="line" wx:for="{{items}}" wx:key="key">
+                <view class="line-thumb thumb-{{item.tone}}">
+                    <text class="line-badge">{{item.badge}}</text>
+                </view>
+                <view class="line-main">
+                    <text class="line-name">{{item.name}}</text>
+                    <text class="line-spec">{{item.specText}}</text>
+                    <view class="line-foot">
+                        <text class="line-price">¥{{item.lineTotalText}}</text>
+                        <view class="stepper">
+                            <view class="step-btn step-minus" data-key="{{item.key}}" data-delta="-1" catchtap="changeQty">−</view>
+                            <text class="step-value">{{item.qty}}</text>
+                            <view class="step-btn step-plus" data-key="{{item.key}}" data-delta="1" catchtap="changeQty">＋</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="line-remove" data-key="{{item.key}}" catchtap="removeItem">×</view>
+            </view>
+        </view>
+
+        <view class="card coupon-card" wx:if="{{coupons.length > 0}}">
+            <text class="section-title">优惠券</text>
+            <view
+                class="coupon {{couponIndex === index ? 'is-active' : ''}}"
+                wx:for="{{coupons}}"
+                wx:key="id"
+                data-index="{{index}}"
+                bindtap="pickCoupon"
+            >
+                <view class="coupon-amount">
+                    <text class="coupon-symbol">¥</text>
+                    <text class="coupon-value">{{item.amountText}}</text>
+                </view>
+                <view class="coupon-info">
+                    <text class="coupon-title">{{item.title}}</text>
+                    <text class="coupon-desc">{{item.desc}}</text>
+                </view>
+                <view class="coupon-check {{couponIndex === index ? 'is-checked' : ''}}">{{couponIndex === index ? '✓' : ''}}</view>
+            </view>
+        </view>
+
+        <view class="card note-card">
+            <text class="section-title">备注</text>
+            <input class="note-input" placeholder="例如：少冰、要杯套、不要吸管" placeholder-class="note-placeholder" value="{{note}}" bindinput="onNoteInput" maxlength="40" />
+        </view>
+
+        <view class="card summary-card">
+            <view class="sum-row">
+                <text class="sum-label">商品小计</text>
+                <text class="sum-value">¥{{subtotalText}}</text>
+            </view>
+            <view class="sum-row" wx:if="{{memberDiscount > 0}}">
+                <text class="sum-label">会员立减</text>
+                <text class="sum-value sum-cut">-¥{{memberDiscountText}}</text>
+            </view>
+            <view class="sum-row" wx:if="{{couponDiscount > 0}}">
+                <text class="sum-label">优惠券 · {{couponTitle}}</text>
+                <text class="sum-value sum-cut">-¥{{couponDiscountText}}</text>
+            </view>
+            <view class="divider sum-divider"></view>
+            <view class="sum-row">
+                <text class="sum-label total-label">应付</text>
+                <text class="sum-total">¥{{totalText}}</text>
+            </view>
+        </view>
+
+        <view class="bottom-bar">
+            <view class="bar-total">
+                <text class="bar-label">合计</text>
+                <text class="bar-value">¥{{totalText}}</text>
+            </view>
+            <view class="submit-btn {{canSubmit ? '' : 'is-disabled'}}" bindtap="submit">提交订单</view>
+        </view>
+    </block>
+</view>

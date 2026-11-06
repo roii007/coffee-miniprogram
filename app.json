@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/cart/cart",
+    "pages/orders/orders",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "拾光咖啡",
+    "navigationBarBackgroundColor": "#F7F3EE",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F3EE",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8C8078",
+    "selectedColor": "#965F3A",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "点单",
+        "iconPath": "assets/tab/cup.png",
+        "selectedIconPath": "assets/tab/cup-active.png"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "订单",
+        "iconPath": "assets/tab/order.png",
+        "selectedIconPath": "assets/tab/order-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/tab/user.png",
+        "selectedIconPath": "assets/tab/user-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
